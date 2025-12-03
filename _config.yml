@@ -1,0 +1,7 @@
+# GitHub Pages設定
+exclude:
+  - README_Excel_Integration.md
+  - README_WebApp.md
+  - requirements.txt
+  - app_streamlit.py
+  - .gitignore
