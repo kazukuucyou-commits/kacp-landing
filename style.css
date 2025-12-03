@@ -1030,6 +1030,7 @@ body {
     }
     .nav a { display: none; }
     .nav-switch { display: inline-flex; }
+    .nav-switch a { display: inline-flex; }
     /* モバイル時、リンクは非表示だが念のためスタイルも簡素化 */
     .nav a {
         color: var(--color-text);
