@@ -177,7 +177,7 @@ body {
     color: var(--main-blue);
     padding: 0.5rem 1.2rem;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
 }
@@ -993,6 +993,9 @@ body {
 }
 
 /* レスポンシブ */
+.sp-br { display: none; } /* PC時は改行非表示 */
+.nowrap { white-space: nowrap; } /* 改行禁止 */
+
 @media (max-width: 968px) {
     .hero {
         grid-template-columns: 1fr;
@@ -1048,6 +1051,9 @@ body {
     .hero-title {
         font-size: 2.5rem;
     }
+    
+    /* スマホ専用改行を表示 */
+    .sp-br { display: inline; }
     
     .section h2 {
         font-size: 2rem;
