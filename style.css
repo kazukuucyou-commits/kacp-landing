@@ -1024,7 +1024,7 @@ body {
         right: 0;
         flex-direction: column;
         gap: 1rem;
-        background: var(--color-surface); /* 不透明な背景で背面文字を隠す */
+        background: #0f1a24; /* より濃い不透明背景で背面文字を隠す */
         border-top: 1px solid var(--color-border);
         padding: 1.25rem 1rem;
         box-shadow: 0 6px 20px rgba(0,0,0,0.3);
@@ -1035,6 +1035,16 @@ body {
 
     .nav.active {
         display: flex;
+    }
+
+    .nav a {
+        color: var(--color-text);
+        padding: 0.75rem 0.5rem;
+        border-radius: 8px;
+        background: rgba(255,255,255,0.02);
+    }
+    .nav a:hover {
+        background: rgba(255,255,255,0.06);
     }
     
     .hamburger {
@@ -1300,8 +1310,8 @@ body {
 .mobile-nav-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(2px);
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
     z-index: 10000;
 }
 
