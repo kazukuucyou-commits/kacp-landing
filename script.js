@@ -15,16 +15,41 @@ if (hamburger) {
             spans[1].style.opacity = '0';
             spans[2].style.transform = 'rotate(-45deg) translate(8px, -8px)';
             
-            // モバイルメニュー表示
+            // モバイルメニュー表示（背景と重ならないようにオーバーレイ）
             nav.style.display = 'flex';
-            nav.style.flexDirection = 'column';
-            nav.style.position = 'absolute';
-            nav.style.top = '100%';
-            nav.style.left = '0';
-            nav.style.right = '0';
-            nav.style.background = 'white';
-            nav.style.padding = '2rem';
-            nav.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
+            // 固定配置はCSSに委ねる
+            // オーバーレイ生成
+            let overlay = document.querySelector('.mobile-nav-overlay');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.className = 'mobile-nav-overlay';
+                document.body.appendChild(overlay);
+                overlay.addEventListener('click', () => {
+                    // 背景タップで閉じる
+                    nav.classList.remove('active');
+                    nav.style.display = 'none';
+                    document.body.style.overflow = '';
+                    overlay.remove();
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                });
+            }
+            document.body.style.overflow = 'hidden';
+            
+            // メニュー内リンククリックで閉じる
+            nav.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    const ov = document.querySelector('.mobile-nav-overlay');
+                    if (ov) ov.remove();
+                    nav.classList.remove('active');
+                    nav.style.display = 'none';
+                    document.body.style.overflow = '';
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }, { once: true });
+            });
         } else {
             spans[0].style.transform = 'none';
             spans[1].style.opacity = '1';
@@ -34,6 +59,9 @@ if (hamburger) {
             if (window.innerWidth <= 768) {
                 nav.style.display = 'none';
             }
+            const overlay = document.querySelector('.mobile-nav-overlay');
+            if (overlay) overlay.remove();
+            document.body.style.overflow = '';
         }
     });
 }
