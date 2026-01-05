@@ -821,6 +821,43 @@ body {
     border-left: 3px solid var(--color-accent);
 }
 
+/* Notesセクション */
+.notes {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+}
+
+.notes-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.notes-list {
+    list-style: none;
+    padding: 0;
+}
+
+.notes-list li {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    padding-left: 3rem;
+    line-height: 1.8;
+}
+
+.notes-list li::before {
+    content: "⚠";
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--color-accent);
+}
+
 /* CTAセクション */
 .cta {
   background: linear-gradient(135deg,#1f3342 0%,#0e1a24 100%);
